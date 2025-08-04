@@ -1,25 +1,28 @@
 # CompatibilityAPI ✨
-Modern uygulamaların Windows 8.1 üzerinde çalışmasını sağlamak adına oluşturulmuş kütüphane. 
 
-## Kullanım
-İlk kurulum için `setup.bat` çalıştırılıp kurulum bitirildiğinde;                                                                                                  
+A library created to allow modern applications to run on Windows 8.1.
 
-```bash 
-coaload.exe <uygulama\yolu\ornek.exe> yada -cfg ornek.txt
-```                                                                                                                                     
-şeklinde kullanılabilir.
-Ayrıca setup çalıştırıldıktan sonra user.bat'ın masaüstü kısayolu bulunmaktadır.
-## Uygulama uyumlulugu ✔
-Chromium uygulamaları için destek üzerine çalışılıyor. Testbuildleri Chromium üzerinde test edip ortaya çıkan sorunlar(varsa) issue açarsanız geliştirmeye büyük oranda katkı sağlamış olursunuz.
-Önceki versiyonda olduğu gibi bir liste oluşturmadım, oluştururum büyük ihtimalle. Çalışan programları da issue bölümünden bildirebilirsiniz.
-Diğer yazılımlarda büyük sorunlar görmedim, çalışmayan programları varsa C ile başlayan hata kodu ile, yoksa Windows hata kodunu(giriş noktası bulunamadı gibi), bunun gibi olan ekran görüntüsünü issue 
-kısmında paylaşırsanız yukarıda da dediğim gibi geliştirmeye büyük katkılar sağlamış olursunuz.
+## Usage
 
-![Ekran görüntüsü 2025-06-27 223546](https://github.com/user-attachments/assets/0f121b92-a8d0-4331-b657-085bbd4229d3)
+For the initial setup, run `setup.bat`. Once the installation is complete:
 
+```bash
+coaload.exe <path\to\application\example.exe> or -cfg example.txt
+```
 
-## C ile başlayan mesaj kutuları ne anlama geliyor ?
-Bilerek getirildi, kod içinde testbox(L"ornek") şeklinde kullanılıyor. Temelde hangi apinin sıkıntı çıkardığını öğrenmek için getirdim. Eğer bir API'yi yanlış yazdıysam bu şekilde program çökmeden önceki son mesaj kutusunun kodu ile 
-hatayı daha rahat anlayabiliyorum. Eğer bu şekilde bir mesaj kutusu program başlangıcında gelirse yada programın içinde iken karşınıza çıkarsa not alın. Sistem donması, çökme gibi sorunlar yaşandığında teşhis etmek kolaylaşıyor.
-Sadece Test sürümlerinde olan bir özellik olarak planlandı. Belki ana sürüme de getirebilirim.
+can be used in this way.
+After running the setup, a desktop shortcut for `user.bat` will also be available.
 
+## Application Compatibility ✔
+
+Support for Chromium-based applications is being worked on. If you test the test builds on Chromium and open an issue with any problems you encounter (if any), you’ll be making a major contribution to development.
+As in the previous version, I haven’t created a list yet — I probably will. You can also report working programs via the issues section.
+I haven’t seen major issues with other software. If there are programs that don’t work, please report them with the error code starting with “C” if available, or the Windows error code (such as “entry point not found”), or a screenshot of the error. As I said above, this helps greatly with development.
+
+![Screenshot 2025-06-27 223546](https://github.com/user-attachments/assets/0f121b92-a8d0-4331-b657-085bbd4229d3)
+
+## What do the message boxes starting with “C” mean?
+
+They were added intentionally and are used in the code as `testbox(L"example")`. They help identify which API is causing issues. If I’ve written an API call incorrectly, I can better understand the error using the last message box code shown before the crash.
+If such a message box appears at startup or during use, please take note of it. It helps diagnose problems like system freezes or crashes.
+This feature is planned to be only in test versions, but I might bring it to the main release as well.
